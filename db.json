@@ -1,1 +1,15 @@
+{
+  "postagens" : [
+    { "id" : 1 , "título" : " Post 1 " },
+    { "id" : 2 , "título" : " Post 2 " },
+    { "id" : 3 , "título" : " Post 3 " }
+  ],
+  "comentários" : [
+    { "id" : 1 , "body" : " algum comentário " , "postId" : 1 },
+    { "id" : 2 , "body" : " algum comentário " , "postId" : 1 }
+  ],
+  "perfil" : {
+    "nome" : " tipo de código "
+  }
+}
 
