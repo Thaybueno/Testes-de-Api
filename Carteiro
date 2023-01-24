@@ -1,0 +1,398 @@
+"informações" : {
+		"_postman_id" : " 50853a3e-d590-4126-87ff-2fade5642dc3 " ,
+		"name" : " API restful-booker " ,
+		"schema" : " https://schema.getpostman.com/json/collection/v2.1.0/collection.json " ,
+		"_exporter_id" : " 24989433 "
+	},
+	"artigo" : [
+		{
+			"name" : " Auth - Criar Token " ,
+			"evento" : [
+				{
+					"ouvir" : " teste " ,
+					"script" : {
+						"executivo" : [
+							" pm.test( \" Código de status é 200 \" , function(){ \r " ,
+							"     pm.response.to.have.status(200) \r " ,
+							"     pm.response.to.have.status( \" OK \" )     \r " ,
+							" }) "
+						],
+						"tipo" : " texto/javascript "
+					}
+				}
+			],
+			"pedido" : {
+				"autenticação" : {
+					"tipo" : " noauth "
+				},
+				"método" : " POST " ,
+				"cabeçalho" : [],
+				"corpo" : {
+					"modo" : " bruto " ,
+					"raw" : " { \r\n     \" nome de usuário \" : \" administrador \" , \r\n     \" senha \" : \" senha123 \"\r\n } " ,
+					"opções" : {
+						"cru" : {
+							"idioma" : " json "
+						}
+					}
+				},
+				"url" : {
+					"raw" : " {{auth}} " ,
+					"hospedeiro" : [
+						" {{autenticação}} "
+					]
+				}
+			},
+			"resposta" : []
+		},
+		{
+			"name" : " Reserva - GetBookingIds " ,
+			"evento" : [
+				{
+					"ouvir" : " teste " ,
+					"script" : {
+						"executivo" : [
+							" pm.test( \" Código de status é 200 \" , function(){ \r " ,
+							"     pm.response.to.have.status(200) \r " ,
+							"     pm.response.to.have.status( \" OK \" )     \r " ,
+							" }) \r " ,
+							" \r " ,
+							" "
+						],
+						"tipo" : " texto/javascript "
+					}
+				}
+			],
+			"pedido" : {
+				"método" : " GET " ,
+				"cabeçalho" : [],
+				"url" : {
+					"raw" : " {{url}}/reserva?firstname=bianca&lastname=blanco " ,
+					"hospedeiro" : [
+						" {{url}} "
+					],
+					"caminho" : [
+						" reserva "
+					],
+					"consulta" : [
+						{
+							"chave" : " primeiro nome " ,
+							"valor" : " bianca "
+						},
+						{
+							"chave" : " sobrenome " ,
+							"valor" : " branco "
+						}
+					]
+				}
+			},
+			"resposta" : []
+		},
+		{
+			"nome" : " Reserva - GetBooking " ,
+			"evento" : [
+				{
+					"ouvir" : " teste " ,
+					"script" : {
+						"executivo" : [
+							" pm.test( \" Código de status é 200 \" , function(){ \r " ,
+							"     pm.response.to.have.status(200) \r " ,
+							"     pm.response.to.have.status( \" OK \" )     \r " ,
+							" }) "
+						],
+						"tipo" : " texto/javascript "
+					}
+				}
+			],
+			"protocolProfileBehavior" : {
+				"disabledSystemHeaders" : {
+					"aceitar" : verdadeiro
+				}
+			},
+			"pedido" : {
+				"método" : " GET " ,
+				"cabeçalho" : [
+					{
+						"chave" : " Aceitar " ,
+						"valor" : " aplicativo/json " ,
+						"tipo" : " texto "
+					}
+				],
+				"url" : {
+					"raw" : " {{url}}/reserva/43 " ,
+					"hospedeiro" : [
+						" {{url}} "
+					],
+					"caminho" : [
+						" reserva " ,
+						" 43 "
+					]
+				}
+			},
+			"resposta" : []
+		},
+		{
+			"name" : " Reserva - Criar Reserva " ,
+			"evento" : [
+				{
+					"ouvir" : " teste " ,
+					"script" : {
+						"executivo" : [
+							" pm.test( \" Código de status é 200 \" , function(){ \r " ,
+							"     pm.response.to.have.status(200) \r " ,
+							"     pm.response.to.have.status( \" OK \" )     \r " ,
+							" }) "
+						],
+						"tipo" : " texto/javascript "
+					}
+				}
+			],
+			"protocolProfileBehavior" : {
+				"disabledSystemHeaders" : {
+					"aceitar" : verdadeiro ,
+					"tipo de conteúdo" : verdadeiro
+				}
+			},
+			"pedido" : {
+				"método" : " POST " ,
+				"cabeçalho" : [
+					{
+						"chave" : " Aceitar " ,
+						"valor" : " aplicativo/json " ,
+						"tipo" : " texto "
+					},
+					{
+						"chave" : " Tipo de conteúdo " ,
+						"valor" : " aplicativo/json " ,
+						"tipo" : " texto "
+					}
+				],
+				"corpo" : {
+					"modo" : " bruto " ,
+					"raw" : " { \r\n     \" primeiro nome \" : \" Bianca \" , \r\n     \" sobrenome \" : \" Blanco \" , \r\n     \" preço total \" : 111, \r\ n     \ "depósito pago \ " : verdadeiro, \r\n     \" datas de reserva \" : { \r\n         \" checkin \" : \" 2018-01-01 \" , \r\n         \"check- out \": \" 2019-01-01 \"\r\n     }, \r\n     \" necessidades adicionais \" : \" Café da manhã \"\r\n } " ,
+					"opções" : {
+						"cru" : {
+							"idioma" : " json "
+						}
+					}
+				},
+				"url" : {
+					"raw" : " {{url}}/reserva " ,
+					"hospedeiro" : [
+						" {{url}} "
+					],
+					"caminho" : [
+						" reserva "
+					]
+				}
+			},
+			"resposta" : []
+		},
+		{
+			"name" : " Atualizar reserva " ,
+			"evento" : [
+				{
+					"ouvir" : " teste " ,
+					"script" : {
+						"executivo" : [
+							" pm.test( \" Código de status é 200 \" , function(){ \r " ,
+							"     pm.response.to.have.status(200) \r " ,
+							"     pm.response.to.have.status( \" OK \" )     \r " ,
+							" }) "
+						],
+						"tipo" : " texto/javascript "
+					}
+				}
+			],
+			"pedido" : {
+				"autenticação" : {
+					"tipo" : " básico " ,
+					"básico" : [
+						{
+							"chave" : " senha " ,
+							"valor" : " senha123 " ,
+							"tipo" : " string "
+						},
+						{
+							"chave" : " nome de usuário " ,
+							"valor" : " administrador " ,
+							"tipo" : " string "
+						}
+					]
+				},
+				"método" : " COLOCAR " ,
+				"cabeçalho" : [],
+				"corpo" : {
+					"modo" : " bruto " ,
+					"raw" : " { \r\n     \" primeiro nome \" : \" Bianca \" , \r\n     \" sobrenome \" : \" Blanco \" , \r\n     \" preço total \" : 111, \r\ n     \ "depósito pago \ " : verdadeiro, \r\n     \" datas de reserva \" : { \r\n         \" checkin \" : \" 2018-01-01 \" , \r\n         \"check- out \": \" 2019-01-01 \"\r\n     }, \r\n     \" necessidades adicionais \" : \" Café da manhã \"\r\n } " ,
+					"opções" : {
+						"cru" : {
+							"idioma" : " json "
+						}
+					}
+				},
+				"url" : {
+					"raw" : " {{url}}/reserva/43 " ,
+					"hospedeiro" : [
+						" {{url}} "
+					],
+					"caminho" : [
+						" reserva " ,
+						" 43 "
+					]
+				}
+			},
+			"resposta" : []
+		},
+		{
+			"name" : " Reserva - PartialUpdate " ,
+			"evento" : [
+				{
+					"ouvir" : " teste " ,
+					"script" : {
+						"executivo" : [
+							" pm.test( \" Código de status é 200 \" , function(){ \r " ,
+							"     pm.response.to.have.status(200) \r " ,
+							"     pm.response.to.have.status( \" OK \" )     \r " ,
+							" }) "
+						],
+						"tipo" : " texto/javascript "
+					}
+				}
+			],
+			"pedido" : {
+				"autenticação" : {
+					"tipo" : " básico " ,
+					"básico" : [
+						{
+							"chave" : " senha " ,
+							"valor" : " senha123 " ,
+							"tipo" : " string "
+						},
+						{
+							"chave" : " nome de usuário " ,
+							"valor" : " administrador " ,
+							"tipo" : " string "
+						}
+					]
+				},
+				"método" : " PATCH " ,
+				"cabeçalho" : [],
+				"corpo" : {
+					"modo" : " bruto " ,
+					"raw" : " { \r\n     \" primeironome \" : \" Bianca \" , \r\n     \" sobrenome \" : \" Blanco \"\r\n } " ,
+					"opções" : {
+						"cru" : {
+							"idioma" : " json "
+						}
+					}
+				},
+				"url" : {
+					"raw" : " {{url}}/reserva/43 " ,
+					"hospedeiro" : [
+						" {{url}} "
+					],
+					"caminho" : [
+						" reserva " ,
+						" 43 "
+					]
+				}
+			},
+			"resposta" : []
+		},
+		{
+			"nome" : " Excluir reserva " ,
+			"evento" : [
+				{
+					"ouvir" : " teste " ,
+					"script" : {
+						"executivo" : [
+							" pm.test( \" Código de status é 200 \" , function(){ \r " ,
+							"     pm.response.to.have.status(201) \r " ,
+							"    \r " ,
+							" }) "
+						],
+						"tipo" : " texto/javascript "
+					}
+				}
+			],
+			"pedido" : {
+				"autenticação" : {
+					"tipo" : " básico " ,
+					"básico" : [
+						{
+							"chave" : " senha " ,
+							"valor" : " senha123 " ,
+							"tipo" : " string "
+						},
+						{
+							"chave" : " nome de usuário " ,
+							"valor" : " administrador " ,
+							"tipo" : " string "
+						}
+					]
+				},
+				"método" : " EXCLUIR " ,
+				"cabeçalho" : [],
+				"url" : {
+					"raw" : " {{url}}/reserva/56 " ,
+					"hospedeiro" : [
+						" {{url}} "
+					],
+					"caminho" : [
+						" reserva " ,
+						" 56 "
+					]
+				}
+			},
+			"resposta" : []
+		}
+	],
+	"autenticação" : {
+		"tipo" : " básico " ,
+		"básico" : [
+			{
+				"chave" : " senha " ,
+				"valor" : " senha123 " ,
+				"tipo" : " string "
+			},
+			{
+				"chave" : " nome de usuário " ,
+				"valor" : " administrador " ,
+				"tipo" : " string "
+			}
+		]
+	},
+	"evento" : [
+		{
+			"listen" : " pré -pedido " ,
+			"script" : {
+				"tipo" : " texto/javascript " ,
+				"executivo" : [
+					" "
+				]
+			}
+		},
+		{
+			"ouvir" : " teste " ,
+			"script" : {
+				"tipo" : " texto/javascript " ,
+				"executivo" : [
+					" "
+				]
+			}
+		}
+	],
+	"variável" : [
+		{
+			"chave" : " autorização " ,
+			"value" : " https://restful-booker.herokuapp.com/auth " ,
+			"tipo" : " string "
+		},
+		{
+			"chave" : " url " ,
+			"value" : " https://restful-booker.herokuapp.com " ,
+			"tipo" : " string "
+		}
+	]
+}
